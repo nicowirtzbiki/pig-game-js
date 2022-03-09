@@ -1,0 +1,42 @@
+body {
+  background-color: black;
+  min-height: 100vh;
+  color: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  margin-left: 40%;
+}
+
+h1 {
+  margin-left: 40%;
+  margin-top: 5%;
+}
+
+h2 {
+  margin-left: 40%;
+  margin-top: 5%;
+}
+
+#scoreP1 {
+  margin-left: 40%;
+}
+
+h3 {
+  margin-left: 40%;
+}
+
+
+#roll {
+  margin-left: 40%;
+}
+
+#reboot {
+  margin-left: 40%;
+}
