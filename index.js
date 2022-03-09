@@ -10,7 +10,7 @@ let pilingUp = document.getElementById("piling");
 let scorePlayer1Label = document.getElementById("scoreP1");
 let scorePlayer2Label = document.getElementById("scoreP2");
 
-function rollDice() {
+function setDiceValue() {
   let dice = 1;
   dice = Math.trunc(Math.random() * 6) + 1;
   document.getElementById("dice").src = "images/" + dice + ".png";
@@ -21,6 +21,11 @@ function rollDice() {
     pile += dice;
     pilingUp.innerText = String("Acumulado: " + pile);
   }
+}
+
+function rollDice() {
+  document.getElementById("dice").src = "images/rodando-dados.gif";
+  setTimeout(setDiceValue, 1500);
 }
 
 function turnPlayer() {
