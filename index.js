@@ -1,7 +1,7 @@
 let scorePlayer1 = 0;
 let scorePlayer2 = 0;
 let currentPlayer = 1;
-const scoreLimit = 20;
+const scoreLimit = 50;
 let pile = 0;
 
 //ids de textos
@@ -9,6 +9,7 @@ let currentPlayerLabel = document.getElementById("turn-message");
 let pilingUp = document.getElementById("piling");
 let scorePlayer1Label = document.getElementById("scoreP1");
 let scorePlayer2Label = document.getElementById("scoreP2");
+let pointsMessage = document.getElementById("points-message");
 
 function setDiceValue() {
   let dice = 1;
@@ -16,10 +17,11 @@ function setDiceValue() {
   document.getElementById("dice").src = "images/" + dice + ".png";
   if (dice == 1) {
     zeroPile();
-    turnPlayer();
+    currentPlayerLabel.innerText = "SAIU O NÚMERO 1, PERDEU A RODADA!";
+    setTimeout(turnPlayer, 2000);
   } else {
     pile += dice;
-    pilingUp.innerText = String("Acumulado: " + pile);
+    pilingUp.innerText = String(pile);
   }
 }
 
@@ -31,7 +33,7 @@ function rollDice() {
 function turnPlayer() {
   if (currentPlayer === 1) {
     scorePlayer1 += pile;
-    scorePlayer1Label.innerText = String("Score Jogador 1: " + scorePlayer1);
+    scorePlayer1Label.innerText = String(scorePlayer1);
     if (scorePlayer1 >= scoreLimit) {
       winGame();
     } else {
@@ -41,7 +43,7 @@ function turnPlayer() {
     }
   } else {
     scorePlayer2 += pile;
-    scorePlayer2Label.innerText = String("Score Jogador 2: " + scorePlayer2);
+    scorePlayer2Label.innerText = String(scorePlayer2);
     if (scorePlayer2 >= scoreLimit) {
       winGame();
     } else {
@@ -53,9 +55,12 @@ function turnPlayer() {
 }
 
 function winGame() {
+  document.getElementById("roll").disabled = true;
+  document.getElementById("hold").disabled = true;
   currentPlayerLabel.innerText = String(
-    "VOCÊ GANHOU, JOGADOR " + currentPlayer + "!"
+    "O VENCEDOR É O JOGADOR " + currentPlayer + "!"
   );
+  pointsMessage.innerText = "JOGO FINALIZADO!";
   if (currentPlayer == 1) {
     pilingUp.innerText = String("Total de Pontos: " + scorePlayer1);
   } else {
@@ -65,17 +70,19 @@ function winGame() {
 
 function zeroPile() {
   pile = 0;
-  pilingUp.innerText = String("Acumulado: " + pile);
+  pilingUp.innerText = String(pile);
 }
 
 function reboot() {
   currentPlayer = 1;
   scorePlayer1 = 0;
   scorePlayer2 = 0;
-  scorePlayer1Label.innerText = String("Score Jogador 1: " + scorePlayer1);
-  scorePlayer2Label.innerText = String("Score Jogador 2: " + scorePlayer2);
-  currentPlayerLabel.innerText = "É A SUA VEZ, JOGADOR 1!";
+  scorePlayer1Label.innerText = String(scorePlayer1);
+  scorePlayer2Label.innerText = String(scorePlayer2);
+  currentPlayerLabel.innerText = "COMECE, JOGADOR 1!";
   zeroPile();
+  document.getElementById("roll").disabled = false;
+  document.getElementById("hold").disabled = false;
 }
 
 //-----BOTÕES-----//

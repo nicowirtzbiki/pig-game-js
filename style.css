@@ -1,42 +1,14 @@
 body {
-  background-color: black;
+  background-image: url("https://github.com/nicowirtzbiki/pig-game-js/blob/f232fb5c444f5ec5c3829cfc70f971a43a066157/images/background-pigs.jpg?raw=true");
+  background-repeat: repeat;
   min-height: 100vh;
   color: white;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+footer{
+  margin-top: auto;
 }
 
-img {
-  margin-left: 40%;
-}
-
-h1 {
-  margin-left: 40%;
-  margin-top: 5%;
-}
-
-h2 {
-  margin-left: 40%;
-  margin-top: 5%;
-}
-
-#scoreP1 {
-  margin-left: 40%;
-}
-
-h3 {
-  margin-left: 40%;
-}
-
-
-#roll {
-  margin-left: 40%;
-}
-
-#reboot {
-  margin-left: 40%;
+.is-horizontal-center {
+  justify-content: center;
 }
