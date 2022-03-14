@@ -79,7 +79,6 @@ function zeroPile() {
 }
 
 function reboot() {
-  //*****mudar para modo 2 players
   currentPlayer = 1;
   scorePlayer1 = 0;
   scorePlayer2 = 0;
@@ -89,6 +88,7 @@ function reboot() {
   pointsMessage.innerText = "ACUMULADO NA RODADA:";
   zeroPile();
   buttonsOn();
+  TwoPlayersMode();
 }
 
 function buttonsOn() {
