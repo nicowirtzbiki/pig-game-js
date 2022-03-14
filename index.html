@@ -11,44 +11,56 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="style.css">
+    <script defer src="index.js"></script>
 </head>
 
 <body>
-    <section class="section">
-        <div class="container">
 
-            <!-- PIG GAME -->
-            <div class="columns">
-                <div class="column is-half is-offset-one-quarter">
-                    <div class="card has-background-danger-light">
-                        <div class="card-content">
-                            <p class="title is-size-1 has-text-centered">
-                                PIG GAME
-                            </p>
-                            <p class="subtitle has-text-justified">
-                                Dois jogadores jogam os dados e ganha quem primeiro acumular <b>50 pontos!</b>
-                                Mas <b>cuidado!</b> Se no dado sair o <b>número 1</b> você perde os pontos
-                                acumulados da rodada.
-                            </p>
+    <!-- PIG GAME -->
+    <section class="section has-background-white">
+        <div class="columns">
+            <div class="column is-half is-offset-one-quarter">
+                <p class="title is-size-1 has-text-centered has-text-danger">
+                    PIG GAME
+                </p>
+                <p class="subtitle has-text-justified">
+                    Dois jogadores jogam os dados e ganha quem primeiro acumular <b>50 pontos!</b>
+                    Mas <b>cuidado!</b> Se no dado sair o <b>número 1</b> você perde os pontos
+                    acumulados da rodada.
+                </p>
+                <div class="columns">
+                    <div class="column is-half">
+                        <p class="title is-size-5 has-text-right">
+                            SELECIONE MODO DE JOGO:
+                        </p>
+                    </div>
+                    <div class="column is-half">
+                        <div class="buttons are-medium" id="game-modes">
+                            <button class="button is-danger" id="two-players">🧍✖️🧍</button>
+                            <button class="button is-danger is-outlined" id="one-player">🧍✖️💻</button>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- 3 Colunas de Baixo -->
+    <!-- 3 Colunas de Baixo -->
+    <section class="section">
+        <div class="container">
             <div class="columns">
 
                 <!-- Jogador 1 -->
                 <div class="column is-one-third">
                     <div class="card has-background-black">
                         <div class="card-content">
-                            <p class="title is-size-4 has-text-danger-light has-text-centered">PONTOS JOGADOR 1: </p>
+                            <p class="title is-size-4 has-text-danger-light has-text-centered">🧍 PONTOS JOGADOR 1: </p>
                             <p class="title is-size-2 has-text-danger-light has-text-centered" id="scoreP1">0</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Vamos Jogar?, Dado, Botões -->
+                <!-- "COMECE JOGADOR 1", Dado, Botões Jogar e Guardar -->
                 <div class="column is-one-third">
                     <div class="box has-background-black">
 
@@ -82,24 +94,29 @@
                         </div>
                     </div>
 
-                    <div class="buttons are-medium is-horizontal-center">
-                        <button class="button is-danger" id="reboot">Recomeçar Jogo</button>
-                    </div>
+
                 </div>
 
                 <!-- Jogador 2 -->
                 <div class="column is-one-third">
                     <div class="card has-background-black">
                         <div class="card-content">
-                            <p class="title is-size-4 has-text-danger-light has-text-centered">PONTOS JOGADOR 2: </p>
+                            <p class="title is-size-4 has-text-danger-light has-text-centered" id="nomeJ2">🧍PONTOS
+                                JOGADOR 2:</p>
                             <p class="title is-size-2 has-text-danger-light has-text-centered" id="scoreP2">0</p>
                         </div>
                     </div>
                 </div>
-
-                <script src="index.js"></script>
             </div>
 
+            <!-- Botão Reboot Recomeçar Jogo -->
+            <div class="columns">
+                <div class="column is-one-third is-offset-one-third">
+                    <div class="buttons are-medium is-horizontal-center">
+                        <button class="button is-danger" id="reboot">Recomeçar Jogo</button>
+                    </div>
+                </div>
+            </div>
 
     </section>
 </body>
