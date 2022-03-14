@@ -114,6 +114,13 @@ function OnePlayerMode() {
   nomeJ2.innerText = "💻 PONTOS JOGADOR 2:";
 }
 
+function TwoPlayersMode() {
+  changeModeColor();
+  computerPlayer = false;
+  let nomeJ2 = document.getElementById("nomeJ2");
+  nomeJ2.innerText = "🧍 PONTOS JOGADOR 2:";
+}
+
 function computerPlayerLogicBackup() {
   buttonsOff();
   rollDice();
@@ -142,12 +149,10 @@ hold.addEventListener("click", turnPlayer);
 const rebooter = document.getElementById("reboot");
 rebooter.addEventListener("click", reboot);
 
-//muda a cor dos botões do game mode (acho que poderei remover)
-//const gameModeColor = document.getElementById("game-modes");
-//gameModeColor.addEventListener("click", changeModeColor);
-
 //habilita modo one player
 const onePlayer = document.getElementById("one-player");
 onePlayer.addEventListener("click", OnePlayerMode);
 
 //const two players desabilita modo one player
+const twoPlayers = document.getElementById("two-players");
+twoPlayers.addEventListener("click", TwoPlayersMode);
