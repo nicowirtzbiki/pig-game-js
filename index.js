@@ -4,6 +4,7 @@ let currentPlayer = 1;
 const scoreLimit = 50;
 let pile = 0;
 let computerPlayer = false;
+let computerTurns = 0;
 
 //ids de textos
 let currentPlayerLabel = document.getElementById("turn-message");
@@ -23,8 +24,10 @@ function setDiceValue() {
   } else {
     pile += dice;
     pilingUp.innerText = String(pile);
+    if (currentPlayer == 2) {
+      computerTurns += 1;
+    }
   }
-  return dice;
 }
 
 function rollDice() {
@@ -43,7 +46,7 @@ function turnPlayer() {
       currentPlayerLabel.innerText = "É A SUA VEZ, JOGADOR 2!";
       zeroPile();
       if (computerPlayer === true) {
-        computerPlayerLogic();
+        setTimeout(computerPlayerLogic, 2000);
       }
     }
   } else {
@@ -79,6 +82,7 @@ function zeroPile() {
 }
 
 function reboot() {
+  computerTurns = 0;
   currentPlayer = 1;
   scorePlayer1 = 0;
   scorePlayer2 = 0;
@@ -102,42 +106,76 @@ function buttonsOff() {
 }
 
 //---GAME MODE---//
-function changeModeColor() {
-  document.getElementById("one-player").classList.toggle("is-outlined");
-  document.getElementById("two-players").classList.toggle("is-outlined");
-}
 
 function OnePlayerMode() {
-  changeModeColor();
+  document.getElementById("one-player").className = "button is-danger";
+  document.getElementById("two-players").className =
+    "button is-danger is-outlined";
   computerPlayer = true;
   let nomeJ2 = document.getElementById("nomeJ2");
   nomeJ2.innerText = "💻 PONTOS JOGADOR 2:";
 }
 
 function TwoPlayersMode() {
-  changeModeColor();
+  document.getElementById("one-player").className =
+    "button is-danger is-outlined";
+  document.getElementById("two-players").className = "button is-danger";
   computerPlayer = false;
   let nomeJ2 = document.getElementById("nomeJ2");
   nomeJ2.innerText = "🧍 PONTOS JOGADOR 2:";
 }
 
-function computerPlayerLogicBackup() {
-  buttonsOff();
-  rollDice();
-
-  if (currentPlayer === 1) return;
-  else if (pile < 20) computerPlayerLogic();
-  else turnPlayer();
-}
-
 function computerPlayerLogic() {
+  console.log("Começou!"); //AVISO DE CONSOLE
   buttonsOff();
-  rollDice(false);
+  let dice;
 
-  if (currentPlayer === 1) return;
-  else if (pile < 20) computerPlayerLogic();
-  else turnPlayer();
+  function computerDice() {
+    computerTurns += 1;
+    dice = 1;
+    dice = Math.trunc(Math.random() * 6) + 1;
+    document.getElementById("dice").src = "images/" + dice + ".png";
+    console.log("o dado saiu:" + dice); //AVISO DE CONSOLE
+    return dice;
+  }
+
+  function imagemQualquer() {
+    document.getElementById("dice").src = "images/3.png";
+  }
+
+  function promessDice() {
+    return new Promise(function (resolve) {
+      document.getElementById("dice").src = "images/rodando-dados.gif";
+      setTimeout(imagemQualquer, 10000);
+      resolve();
+    });
+  }
+  promessDice().then(function () {
+    computerDice();
+    if (dice == 1) {
+      zeroPile();
+      currentPlayerLabel.innerText = "SAIU O NÚMERO 1, PERDEU A RODADA!";
+      setTimeout(turnPlayer, 2000);
+    } else {
+      pile += dice;
+      pilingUp.innerText = String(pile);
+      if (computerTurns < 4 || pile < 15) {
+        computerPlayerLogic();
+      } else {
+        setTimeout(turnPlayer, 2000);
+      }
+    }
+  });
 }
+
+// function computerPlayerLogic() {
+//   function shout() {
+//     console.log("rodou o gif"); //AVISO DE CONSOLE
+//   }
+//   buttonsOff();
+//   document.getElementById("dice").src = "images/rodando-dados.gif";
+//   setTimeout(shout, 10000);
+// }
 
 //-----BOTÕES-----//
 const roll = document.getElementById("roll");
