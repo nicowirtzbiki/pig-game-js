@@ -4,7 +4,7 @@ let currentPlayer = 1;
 const scoreLimit = 50;
 let pile = 0;
 let computerPlayer = false;
-let computerTurns = 0;
+let computerPlayerTurns = 0;
 
 //ids de textos
 let currentPlayerLabel = document.getElementById("turn-message");
@@ -18,14 +18,24 @@ function setDiceValue() {
   dice = Math.trunc(Math.random() * 6) + 1;
   document.getElementById("dice").src = "images/" + dice + ".png";
   if (dice == 1) {
+    console.log("saiu 1, perdeu a jogada");
     zeroPile();
     currentPlayerLabel.innerText = "SAIU O NÚMERO 1, PERDEU A RODADA!";
     setTimeout(turnPlayer, 1500);
   } else {
     pile += dice;
-    pilingUp.innerText = String(pile);
-    if (currentPlayer == 2) {
-      computerTurns += 1;
+    pilingUp.innerText = String(pile); //tá parando bem aqui
+    if (currentPlayer == 2 && computerPlayer == true) {
+      //ver se o problema tá aqui
+      console.log("entrou no if do dice");
+      computerPlayerTurns += 1;
+      if (computerPlayerTurns < 4 || pile < 15) {
+        console.log("entrou no if do dice pra rodar de novo");
+        rollDice();
+      } else {
+        console.log("caiu fora das consições e passou o player");
+        turnPlayer();
+      }
     }
   }
 }
@@ -36,6 +46,7 @@ function rollDice() {
 }
 
 function turnPlayer() {
+  buttonsOn();
   if (currentPlayer === 1) {
     scorePlayer1 += pile;
     scorePlayer1Label.innerText = String(scorePlayer1);
@@ -46,7 +57,9 @@ function turnPlayer() {
       currentPlayerLabel.innerText = "É A SUA VEZ, JOGADOR 2!";
       zeroPile();
       if (computerPlayer === true) {
-        setTimeout(computerPlayerLogic, 2000);
+        console.log("entrou o computador");
+        buttonsOff();
+        setTimeout(rollDice, 2000);
       }
     }
   } else {
@@ -124,58 +137,6 @@ function TwoPlayersMode() {
   let nomeJ2 = document.getElementById("nomeJ2");
   nomeJ2.innerText = "🧍 PONTOS JOGADOR 2:";
 }
-
-function computerPlayerLogic() {
-  console.log("Começou!"); //AVISO DE CONSOLE
-  buttonsOff();
-  let dice;
-
-  function computerDice() {
-    computerTurns += 1;
-    dice = 1;
-    dice = Math.trunc(Math.random() * 6) + 1;
-    document.getElementById("dice").src = "images/" + dice + ".png";
-    console.log("o dado saiu:" + dice); //AVISO DE CONSOLE
-    return dice;
-  }
-
-  function imagemQualquer() {
-    document.getElementById("dice").src = "images/3.png";
-  }
-
-  function promessDice() {
-    return new Promise(function (resolve) {
-      document.getElementById("dice").src = "images/rodando-dados.gif";
-      setTimeout(imagemQualquer, 10000);
-      resolve();
-    });
-  }
-  promessDice().then(function () {
-    computerDice();
-    if (dice == 1) {
-      zeroPile();
-      currentPlayerLabel.innerText = "SAIU O NÚMERO 1, PERDEU A RODADA!";
-      setTimeout(turnPlayer, 2000);
-    } else {
-      pile += dice;
-      pilingUp.innerText = String(pile);
-      if (computerTurns < 4 || pile < 15) {
-        computerPlayerLogic();
-      } else {
-        setTimeout(turnPlayer, 2000);
-      }
-    }
-  });
-}
-
-// function computerPlayerLogic() {
-//   function shout() {
-//     console.log("rodou o gif"); //AVISO DE CONSOLE
-//   }
-//   buttonsOff();
-//   document.getElementById("dice").src = "images/rodando-dados.gif";
-//   setTimeout(shout, 10000);
-// }
 
 //-----BOTÕES-----//
 const roll = document.getElementById("roll");
