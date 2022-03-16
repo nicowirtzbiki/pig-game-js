@@ -21,15 +21,15 @@ function setDiceValue() {
     console.log("saiu 1, perdeu a jogada");
     zeroPile();
     currentPlayerLabel.innerText = "SAIU O NÚMERO 1, PERDEU A RODADA!";
-    setTimeout(turnPlayer, 1500);
+    setTimeout(turnPlayer, 2000);
   } else {
     pile += dice;
-    pilingUp.innerText = String(pile); //tá parando bem aqui
+    pilingUp.innerText = String(pile);
     if (currentPlayer == 2 && computerPlayer == true) {
       //ver se o problema tá aqui
       console.log("entrou no if do dice");
       computerPlayerTurns += 1;
-      if (computerPlayerTurns < 4 || pile < 15) {
+      if (computerPlayerTurns < 3 || pile < 10) {
         console.log("entrou no if do dice pra rodar de novo");
         rollDice();
       } else {
@@ -105,7 +105,6 @@ function reboot() {
   pointsMessage.innerText = "ACUMULADO NA RODADA:";
   zeroPile();
   buttonsOn();
-  TwoPlayersMode();
 }
 
 function buttonsOn() {
@@ -127,6 +126,9 @@ function OnePlayerMode() {
   computerPlayer = true;
   let nomeJ2 = document.getElementById("nomeJ2");
   nomeJ2.innerText = "💻 PONTOS JOGADOR 2:";
+  if (pile > 0 || scorePlayer1 > 0 || scorePlayer2 > 0) {
+    reboot();
+  }
 }
 
 function TwoPlayersMode() {
@@ -136,6 +138,9 @@ function TwoPlayersMode() {
   computerPlayer = false;
   let nomeJ2 = document.getElementById("nomeJ2");
   nomeJ2.innerText = "🧍 PONTOS JOGADOR 2:";
+  if (pile > 0 || scorePlayer1 > 0 || scorePlayer2 > 0) {
+    reboot();
+  }
 }
 
 //-----BOTÕES-----//
