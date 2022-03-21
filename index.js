@@ -78,6 +78,7 @@ function turnPlayer() {
 
 function winGame() {
   buttonsOff();
+  document.getElementById("dice").src = "images/fireworks.gif";
   currentPlayerLabel.innerText = String(
     "O VENCEDOR É O JOGADOR " + currentPlayer + "!"
   );
@@ -103,6 +104,7 @@ function reboot() {
   scorePlayer2Label.innerText = String(scorePlayer2);
   currentPlayerLabel.innerText = "COMECE, JOGADOR 1!";
   pointsMessage.innerText = "ACUMULADO NA RODADA:";
+  document.getElementById("dice").src = "images/roll-the-dice.png";
   zeroPile();
   buttonsOn();
 }
