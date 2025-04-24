@@ -37,42 +37,16 @@ button.button:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-#dice {
-  max-width: 100%;
+#reboot {
+  margin-top: 2rem;
 }
 
 footer {
-  margin-top: 2rem;
   padding: 2rem 0;
   background-color: #f1f1f1;
   color: #333;
 }
 
-footer a {
-  color: #00bfa6;
-  font-weight: 600;
-}
-
 .is-horizontal-center {
   justify-content: center;
-}
-
-/*.ordered-mobile {
-  display: flex;
-  flex-flow: row;
-}
-
-@media screen and (max-width: 769px) {
-  .ordered-mobile {
-    flex-flow: column;
-  }
-  .ordered-mobile .fl-1 {
-    order: 1;
-  }
-  .ordered-mobile .fl-2 {
-    order: 2;
-  }
-  .ordered-mobile .fl-3 {
-    order: 3;
-  }
 }

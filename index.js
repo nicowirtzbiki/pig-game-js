@@ -53,6 +53,8 @@ function turnPlayer() {
       winGame();
     } else {
       currentPlayer = 2;
+      currentPlayerLabel.classList.remove("has-text-primary");
+      currentPlayerLabel.classList.add("has-text-danger");
       currentPlayerLabel.innerText = "IT'S YOUR TURN, PLAYER 2!";
       zeroPile();
       if (computerPlayer === true) {
@@ -68,6 +70,8 @@ function turnPlayer() {
       winGame();
     } else {
       currentPlayer = 1;
+      currentPlayerLabel.classList.remove("has-text-danger");
+      currentPlayerLabel.classList.add("has-text-primary");
       currentPlayerLabel.innerText = "IT'S YOUR TURN, PLAYER 1!";
       buttonsOn();
       zeroPile();
@@ -102,6 +106,8 @@ function reboot() {
   scorePlayer1Label.innerText = String(scorePlayer1);
   scorePlayer2Label.innerText = String(scorePlayer2);
   currentPlayerLabel.innerText = "START, PLAYER 1!";
+  currentPlayerLabel.classList.remove("has-text-danger");
+  currentPlayerLabel.classList.add("has-text-primary");
   pointsMessage.innerText = "ACCUMULATED IN THE ROUND:";
   document.getElementById("dice").src = "images/roll-the-dice.png";
   zeroPile();

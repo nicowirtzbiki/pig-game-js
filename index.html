@@ -93,9 +93,12 @@
 
       <!-- "COMECE JOGADOR 1", Dado, Botões Jogar e Guardar -->
       <div class="column is-half is-offset-one-quarter">
-        <div class="box has-background-white-ter">
+        <div class="card has-background-white-ter">
           <div class="card-content">
-            <p class="title is-size-4 has-text-centered" id="turn-message">
+            <p
+              class="title is-size-4 has-text-centered has-text-primary"
+              id="turn-message"
+            >
               START, PLAYER 1!
             </p>
 
@@ -116,8 +119,11 @@
             <button class="button is-primary" id="hold">KEEP</button>
           </div>
 
-          <div class="card-content has-background-white">
-            <p class="title is-size-5 has-text-centered" id="points-message">
+          <div class="card-content">
+            <p
+              class="title is-size-5 is-size-7-mobile has-text-centered"
+              id="points-message"
+            >
               ACCUMULATED IN THE ROUND:
             </p>
             <p class="title is-size-2 has-text-centered" id="piling">0</p>
@@ -126,12 +132,10 @@
       </div>
 
       <!-- Buttons Reboot Restart Game -->
-      <div class="columns">
+      <div class="columns is-vcentered">
         <div class="column is-one-third is-offset-one-third">
           <div class="buttons are-normal is-horizontal-center">
-            <button class="button is-danger is-light" id="reboot">
-              Restart Game
-            </button>
+            <button class="button is-danger" id="reboot">Restart Game</button>
           </div>
         </div>
       </div>
