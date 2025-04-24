@@ -132,7 +132,7 @@ function OnePlayerMode() {
     "button is-primary is-outlined";
   computerPlayer = true;
   let nameJ2 = document.getElementById("nameJ2");
-  nameJ2.innerText = "💻 POINTS PLAYER 2:";
+  nameJ2.innerText = "🤖";
   if (pile > 0 || scorePlayer1 > 0 || scorePlayer2 > 0) {
     reboot();
   }
@@ -144,7 +144,7 @@ function TwoPlayersMode() {
   document.getElementById("two-players").className = "button is-primary";
   computerPlayer = false;
   let nameJ2 = document.getElementById("nameJ2");
-  nameJ2.innerText = "🧍 POINTS PLAYER 2:";
+  nameJ2.innerText = "👩‍🎤";
   if (pile > 0 || scorePlayer1 > 0 || scorePlayer2 > 0) {
     reboot();
   }
@@ -182,10 +182,14 @@ twoPlayers.addEventListener("click", function () {
 
 // Adding event for mouse scrolling
 window.addEventListener("wheel", function (event) {
-  if (event.deltaY > 0) {
-    // scrolling down
-    document
-      .getElementById("scroll-target")
-      .scrollIntoView({ behavior: "smooth" });
+  const scrollTarget = document.getElementById("scroll-target");
+
+  // Checks if the scroll is at the end of the page
+  if (
+    event.deltaY > 0 &&
+    scrollTarget.getBoundingClientRect().bottom > window.innerHeight
+  ) {
+    // Scrolling down
+    scrollTarget.scrollIntoView({ behavior: "smooth" });
   }
 });
