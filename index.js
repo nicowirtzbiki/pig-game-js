@@ -162,8 +162,20 @@ rebooter.addEventListener("click", reboot);
 
 //activates mode one player
 const onePlayer = document.getElementById("one-player");
-onePlayer.addEventListener("click", OnePlayerMode);
+onePlayer.addEventListener("click", function () {
+  OnePlayerMode();
+  // Centralizes screen in the section
+  document
+    .getElementById("scroll-target")
+    .scrollIntoView({ behavior: "smooth" });
+});
 
 //deactivates mode one player
 const twoPlayers = document.getElementById("two-players");
-twoPlayers.addEventListener("click", TwoPlayersMode);
+twoPlayers.addEventListener("click", function () {
+  TwoPlayersMode();
+  // Centralizes screen in the section
+  document
+    .getElementById("scroll-target")
+    .scrollIntoView({ behavior: "smooth" });
+});

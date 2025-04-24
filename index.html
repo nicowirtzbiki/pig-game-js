@@ -22,6 +22,7 @@
 
   <body>
     <!-- PIG GAME -->
+
     <section class="section has-background-white">
       <div class="columns">
         <div class="column is-half is-offset-one-quarter">
@@ -48,98 +49,100 @@
       </div>
     </section>
 
-    <!--Columns -->
-    <section class="section">
-      <div class="columns is-mobile is-centered">
-        <!-- Player 1 -->
-        <div class="column is-one-quarter-desktop is-half-mobile fl-1">
-          <div class="card has-background-grey-lighter">
+    <section id="scroll-target">
+      <!--Columns -->
+      <section class="section">
+        <div class="columns is-mobile is-centered">
+          <!-- Player 1 -->
+          <div class="column is-one-quarter-desktop is-half-mobile fl-1">
+            <div class="card has-background-grey-lighter">
+              <div class="card-content">
+                <p
+                  class="title is-size-5 is-size-7-mobile has-text-primary has-text-centered"
+                >
+                  🧍 POINTS PLAYER 1:
+                </p>
+                <p
+                  class="title is-size-3 has-text-primary has-text-centered"
+                  id="scoreP1"
+                >
+                  0
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Player 2 -->
+          <div class="column is-one-quarter-desktop is-half-mobile fl-2">
+            <div class="card has-background-grey-lighter">
+              <div class="card-content">
+                <p
+                  class="title is-size-5 is-size-7-mobile has-text-danger has-text-centered"
+                  id="nameJ2"
+                >
+                  🧍POINTS PLAYER 2:
+                </p>
+                <p
+                  class="title is-size-3 has-text-danger has-text-centered"
+                  id="scoreP2"
+                >
+                  0
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- "COMECE JOGADOR 1", Dado, Botões Jogar e Guardar -->
+        <div class="column is-half is-offset-one-quarter">
+          <div class="card has-background-white-ter">
             <div class="card-content">
               <p
-                class="title is-size-5 is-size-7-mobile has-text-primary has-text-centered"
+                class="title is-size-4 has-text-centered has-text-primary"
+                id="turn-message"
               >
-                🧍 POINTS PLAYER 1:
+                START <br />
+                PLAYER 1!
               </p>
-              <p
-                class="title is-size-3 has-text-primary has-text-centered"
-                id="scoreP1"
-              >
-                0
-              </p>
-            </div>
-          </div>
-        </div>
 
-        <!-- Player 2 -->
-        <div class="column is-one-quarter-desktop is-half-mobile fl-2">
-          <div class="card has-background-grey-lighter">
+              <div class="card-content is-flex is-horizontal-center">
+                <figure class="image is-128x128">
+                  <img
+                    id="dice"
+                    src="images/roll-the-dice.png"
+                    width="100px"
+                    height="100px"
+                  />
+                </figure>
+              </div>
+            </div>
+
+            <div class="buttons are-normal is-horizontal-center">
+              <button class="button is-primary" id="roll">PLAY</button>
+              <button class="button is-primary" id="hold">KEEP</button>
+            </div>
+
             <div class="card-content">
               <p
-                class="title is-size-5 is-size-7-mobile has-text-danger has-text-centered"
-                id="nameJ2"
+                class="title is-size-5 is-size-7-mobile has-text-centered"
+                id="points-message"
               >
-                🧍POINTS PLAYER 2:
+                ACCUMULATED IN THE ROUND:
               </p>
-              <p
-                class="title is-size-3 has-text-danger has-text-centered"
-                id="scoreP2"
-              >
-                0
-              </p>
+              <p class="title is-size-2 has-text-centered" id="piling">0</p>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- "COMECE JOGADOR 1", Dado, Botões Jogar e Guardar -->
-      <div class="column is-half is-offset-one-quarter">
-        <div class="card has-background-white-ter">
-          <div class="card-content">
-            <p
-              class="title is-size-4 has-text-centered has-text-primary"
-              id="turn-message"
-            >
-              START <br />
-              PLAYER 1!
-            </p>
-
-            <div class="card-content is-flex is-horizontal-center">
-              <figure class="image is-128x128">
-                <img
-                  id="dice"
-                  src="images/roll-the-dice.png"
-                  width="100px"
-                  height="100px"
-                />
-              </figure>
+        <!-- Buttons Reboot Restart Game -->
+        <div class="columns is-vcentered">
+          <div class="column is-one-third is-offset-one-third">
+            <div class="buttons are-normal is-horizontal-center">
+              <button class="button is-danger" id="reboot">Restart Game</button>
             </div>
           </div>
-
-          <div class="buttons are-normal is-horizontal-center">
-            <button class="button is-primary" id="roll">PLAY</button>
-            <button class="button is-primary" id="hold">KEEP</button>
-          </div>
-
-          <div class="card-content">
-            <p
-              class="title is-size-5 is-size-7-mobile has-text-centered"
-              id="points-message"
-            >
-              ACCUMULATED IN THE ROUND:
-            </p>
-            <p class="title is-size-2 has-text-centered" id="piling">0</p>
-          </div>
         </div>
-      </div>
-
-      <!-- Buttons Reboot Restart Game -->
-      <div class="columns is-vcentered">
-        <div class="column is-one-third is-offset-one-third">
-          <div class="buttons are-normal is-horizontal-center">
-            <button class="button is-danger" id="reboot">Restart Game</button>
-          </div>
-        </div>
-      </div>
+      </section>
     </section>
   </body>
 
