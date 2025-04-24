@@ -1,12 +1,55 @@
-<h1>Hosted on Github Pages:</h1>
+# Pig Game 🎲
 
-https://nicowirtzbiki.github.io/pig-game-js/
+[**Live Demo on GitHub Pages**](https://nicowirtzbiki.github.io/pig-game-js/)
 
-# pig-game-js
-<h3> Development of the virtual dice game 'Pig Game' in Javascript </h3>
+A simple virtual dice game built with HTML, CSS, and JavaScript.
 
-<h4>About Game:</h4>
-<p>In this game, User Interface (UI) contains user/player that can do three things, they are as follows:</p>
+---
+
+## 🎮 About the Game
+
+Pig Game is a two-player turn-based dice game where each player tries to reach a total score of 50 points first. The gameplay is straightforward and fun, focusing on risk management and chance.
+
+### How to Play:
+
+- **🎲 Roll Dice**:  
+  The active player rolls a dice. If the result is **not 1**, the value is added to their **Current Score**. If the result **is 1**, the player loses their current score and it's the other player’s turn.
+- **📥 Hold**:  
+  The player can choose to "Hold", which adds the current score to their **Total Score**. If the Total Score reaches **50 or more**, the player wins the game.
+
+- **🔁 Restart Game**:  
+  Resets all scores and sets Player 1 as the starting player.
+
+---
+
+## 🛠️ Tech Stack
+
+- **HTML** – Structure and layout
+- **CSS + Bulma** – Styling, responsiveness, and layout helpers
+- **JavaScript** – Game logic and interactivity
+
+---
+
+## 📌 Notes
+
+- This project was created as part of my learning journey in JavaScript.
+- It’s fully responsive and playable directly in the browser.
+- Feel free to fork the repository and enhance the game further!
+
+---
+
+## 📁 Project Structure
+
+pig-game-js/ ├── index.html # HTML layout ├── style.css # CSS styling ├── script.js # Game logic └── dice.png # Dice image used in the UI
+
+<ul>
+  <li>HTML File (index.html)</li>
+  <li>CSS File (style.css)</li>
+  <li>JavaScript File (script.js file)</li></li>
+  <li>Images (dice.png file)</li>
+</ul>
+
+## <!--
 
 <p>There will be two players in this game. At the start of the game Player 1 will be the CurrentPlayer and Player 2 will be the in-active one.</p>
 
@@ -25,8 +68,4 @@ https://nicowirtzbiki.github.io/pig-game-js/
   <li>JavaScript File (script.js file)</li></li>
   <li>Images (dice.png file)</li>
 </ul>
-  
-
-
-
-
+-->
