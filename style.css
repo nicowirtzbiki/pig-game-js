@@ -1,21 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
 body {
-  background-image: url("https://github.com/nicowirtzbiki/pig-game-js/blob/f232fb5c444f5ec5c3829cfc70f971a43a066157/images/background-pigs.jpg?raw=true");
-  background-repeat: repeat;
-  min-height: 100vh;
-  color: white;
+  /*background-image: url("https://github.com/nicowirtzbiki/pig-game-js/blob/f232fb5c444f5ec5c3829cfc70f971a43a066157/images/background-pigs.jpg?raw=true");*/
+  /*background-repeat: repeat;*/
+  /*color: white;*/
+  /*min-height: 100vh;*/
+
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(145deg, #f8f9fa, #e0f7fa);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-footer{
-  margin-top: auto;
+.card,
+.box {
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.image img {
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+button.button {
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+button.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#dice {
+  max-width: 100%;
+}
+
+footer {
+  margin-top: 2rem;
+  padding: 2rem 0;
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+footer a {
+  color: #00bfa6;
+  font-weight: 600;
 }
 
 .is-horizontal-center {
   justify-content: center;
 }
 
+/*.ordered-mobile {
+  display: flex;
+  flex-flow: row;
+}
+
 @media screen and (max-width: 769px) {
   .ordered-mobile {
-    display: flex;
     flex-flow: column;
   }
   .ordered-mobile .fl-1 {

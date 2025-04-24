@@ -1,134 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PIG GAME</title>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
     <script defer src="index.js"></script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <!-- PIG GAME -->
     <section class="section has-background-white">
-        <div class="columns">
-            <div class="column is-half is-offset-one-quarter">
-                <p class="title is-size-1 has-text-centered has-text-danger">
-                    PIG GAME
-                </p>
-                <p class="subtitle has-text-justified">
-                    Dois jogadores jogam os dados e ganha quem primeiro acumular <b>50 pontos!</b>
-                    Mas <b>cuidado!</b> Se no dado sair o <b>número 1</b> você perde os pontos
-                    acumulados da rodada.
-                </p>
-                <div class="columns">
-                    <div class="column is-half">
-                        <p class="title is-size-5 has-text-centered">
-                            SELECIONE MODO DE JOGO:
-                        </p>
-                    </div>
-                    <div class="column is-half">
-                        <div class="buttons are-medium is-horizontal-centergit" id="game-modes">
-                            <button class="button is-danger" id="two-players">🧍✖️🧍</button>
-                            <button class="button is-danger is-outlined" id="one-player">🧍✖️💻</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <p class="title is-size-2 has-text-centered has-text-dark">
+            PIG GAME
+          </p>
+
+          <p class="content is-small has-text-centered">
+            Two players roll the dice and the first player to reach
+            <b>50 points</b> wins! <br />
+            But be careful! If the <b>number 1</b> comes up on the dice, you
+            lose the points accumulated for the round.
+          </p>
+
+          <p class="title is-size-6 has-text-centered">SELECT GAME MODE:</p>
+
+          <div class="buttons are-normal is-horizontal-center" id="game-modes">
+            <button class="button is-primary" id="two-players">🧍✖️🧍</button>
+            <button class="button is-primary is-outlined" id="one-player">
+              🧍✖️💻
+            </button>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- 3 Colunas de Baixo -->
+    <!--Columns -->
     <section class="section">
-        <div class="container">
-            <div class="columns ordered-mobile">
-
-                <!-- Jogador 1 -->
-                <div class="column is-one-third fl-1">
-                    <div class="card has-background-black">
-                        <div class="card-content">
-                            <p class="title is-size-4 has-text-danger-light has-text-centered">🧍 PONTOS JOGADOR 1: </p>
-                            <p class="title is-size-2 has-text-danger-light has-text-centered" id="scoreP1">0</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- "COMECE JOGADOR 1", Dado, Botões Jogar e Guardar -->
-                <div class="column is-one-third fl-3">
-                    <div class="box has-background-black">
-
-                        <div class="card has-background-black">
-                            <div class="card-content">
-                                <p class="title is-size-4 has-text-danger-light has-text-centered" id="turn-message">
-                                    COMECE, JOGADOR 1!
-                                </p>
-                                <div class="card-content is-flex is-horizontal-center">
-                                    <figure class="image is-128x128">
-                                        <img id="dice" src="images/roll-the-dice.png" width="180px" height="180px">
-                                    </figure>
-                                </div>
-                            </div>
-
-
-                            <div class="buttons are-large is-horizontal-center">
-                                <button class="button is-link is-outlined" id="roll">Jogar</button>
-                                <button class="button is-link is-outlined" id="hold">Guardar</button>
-                            </div>
-
-
-                            <div class="card-content has-background-white">
-                                <p class="title is-size-5 has-text-centered" id="points-message">
-                                    ACUMULADO NA RODADA:
-                                </p>
-                                <p class="title is-size-2 has-text-centered" id="piling">
-                                    0
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-
-                <!-- Jogador 2 -->
-                <div class="column is-one-third fl-2">
-                    <div class="card has-background-black">
-                        <div class="card-content">
-                            <p class="title is-size-4 has-text-danger-light has-text-centered" id="nomeJ2">🧍PONTOS
-                                JOGADOR 2:</p>
-                            <p class="title is-size-2 has-text-danger-light has-text-centered" id="scoreP2">0</p>
-                        </div>
-                    </div>
-                </div>
+      <div class="columns is-mobile is-centered">
+        <!-- Player 1 -->
+        <div class="column is-one-quarter-desktop is-half-mobile fl-1">
+          <div class="card has-background-grey-lighter">
+            <div class="card-content">
+              <p
+                class="title is-size-5 is-size-7-mobile has-text-primary has-text-centered"
+              >
+                🧍 POINTS PLAYER 1:
+              </p>
+              <p
+                class="title is-size-3 has-text-primary has-text-centered"
+                id="scoreP1"
+              >
+                0
+              </p>
             </div>
+          </div>
+        </div>
 
-            <!-- Botão Reboot Recomeçar Jogo -->
-            <div class="columns">
-                <div class="column is-one-third is-offset-one-third">
-                    <div class="buttons are-medium is-horizontal-center">
-                        <button class="button is-danger" id="reboot">Recomeçar Jogo</button>
-                    </div>
-                </div>
+        <!-- Player 2 -->
+        <div class="column is-one-quarter-desktop is-half-mobile fl-2">
+          <div class="card has-background-grey-lighter">
+            <div class="card-content">
+              <p
+                class="title is-size-5 is-size-7-mobile has-text-danger has-text-centered"
+                id="nameJ2"
+              >
+                🧍POINTS PLAYER 2:
+              </p>
+              <p
+                class="title is-size-3 has-text-danger has-text-centered"
+                id="scoreP2"
+              >
+                0
+              </p>
             </div>
+          </div>
+        </div>
+      </div>
 
+      <!-- "COMECE JOGADOR 1", Dado, Botões Jogar e Guardar -->
+      <div class="column is-half is-offset-one-quarter">
+        <div class="box has-background-white-ter">
+          <div class="card-content">
+            <p class="title is-size-4 has-text-centered" id="turn-message">
+              START, PLAYER 1!
+            </p>
+
+            <div class="card-content is-flex is-horizontal-center">
+              <figure class="image is-128x128">
+                <img
+                  id="dice"
+                  src="images/roll-the-dice.png"
+                  width="100px"
+                  height="100px"
+                />
+              </figure>
+            </div>
+          </div>
+
+          <div class="buttons are-normal is-horizontal-center">
+            <button class="button is-primary" id="roll">PLAY</button>
+            <button class="button is-primary" id="hold">KEEP</button>
+          </div>
+
+          <div class="card-content has-background-white">
+            <p class="title is-size-5 has-text-centered" id="points-message">
+              ACCUMULATED IN THE ROUND:
+            </p>
+            <p class="title is-size-2 has-text-centered" id="piling">0</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buttons Reboot Restart Game -->
+      <div class="columns">
+        <div class="column is-one-third is-offset-one-third">
+          <div class="buttons are-normal is-horizontal-center">
+            <button class="button is-danger is-light" id="reboot">
+              Restart Game
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
-</body>
+  </body>
 
-<footer class="footer">
+  <footer class="footer">
     <div class="content has-text-centered">
-        <p class="has-text-danger">
-            <strong>PIG GAME</strong> by Nicole Wirtzbiki
-        </p>
-        <a class="has-text-danger" href="https://github.com/nicowirtzbiki/pig-game-js">Veja Código no Repositório
-            Github</a>
+      <p class="has-text-danger">
+        <strong>PIG GAME</strong> by Nicole Wirtzbiki
+      </p>
+      <a
+        class="has-text-danger"
+        href="https://github.com/nicowirtzbiki/pig-game-js"
+        >See Code in Github Repository</a
+      >
     </div>
-</footer>
-
+  </footer>
 </html>

@@ -20,13 +20,12 @@ function setDiceValue() {
   if (dice == 1) {
     console.log("saiu 1, perdeu a jogada");
     zeroPile();
-    currentPlayerLabel.innerText = "SAIU O NÚMERO 1, PERDEU A RODADA!";
+    currentPlayerLabel.innerText = "IT'S NUMBER 1, LOST YOUR TURN!";
     setTimeout(turnPlayer, 2000);
   } else {
     pile += dice;
     pilingUp.innerText = String(pile);
     if (currentPlayer == 2 && computerPlayer == true) {
-      //ver se o problema tá aqui
       console.log("entrou no if do dice");
       computerPlayerTurns += 1;
       if (computerPlayerTurns < 3 || pile < 10) {
@@ -54,7 +53,7 @@ function turnPlayer() {
       winGame();
     } else {
       currentPlayer = 2;
-      currentPlayerLabel.innerText = "É A SUA VEZ, JOGADOR 2!";
+      currentPlayerLabel.innerText = "IT'S YOUR TURN, PLAYER 2!";
       zeroPile();
       if (computerPlayer === true) {
         console.log("entrou o computador");
@@ -69,7 +68,7 @@ function turnPlayer() {
       winGame();
     } else {
       currentPlayer = 1;
-      currentPlayerLabel.innerText = "É A SUA VEZ, JOGADOR 1!";
+      currentPlayerLabel.innerText = "IT'S YOUR TURN, PLAYER 1!";
       buttonsOn();
       zeroPile();
     }
@@ -80,13 +79,13 @@ function winGame() {
   buttonsOff();
   document.getElementById("dice").src = "images/fireworks.gif";
   currentPlayerLabel.innerText = String(
-    "O VENCEDOR É O JOGADOR " + currentPlayer + "!"
+    "THE WINNER IS PLAYER " + currentPlayer + "!"
   );
-  pointsMessage.innerText = "JOGO FINALIZADO!";
+  pointsMessage.innerText = "GAME IS OVER!";
   if (currentPlayer == 1) {
-    pilingUp.innerText = String("Total de Pontos: " + scorePlayer1);
+    pilingUp.innerText = String("Total Score: " + scorePlayer1);
   } else {
-    pilingUp.innerText = String("Total de Pontos: " + scorePlayer2);
+    pilingUp.innerText = String("Total Score: " + scorePlayer2);
   }
 }
 
@@ -102,8 +101,8 @@ function reboot() {
   scorePlayer2 = 0;
   scorePlayer1Label.innerText = String(scorePlayer1);
   scorePlayer2Label.innerText = String(scorePlayer2);
-  currentPlayerLabel.innerText = "COMECE, JOGADOR 1!";
-  pointsMessage.innerText = "ACUMULADO NA RODADA:";
+  currentPlayerLabel.innerText = "START, PLAYER 1!";
+  pointsMessage.innerText = "ACCUMULATED IN THE ROUND:";
   document.getElementById("dice").src = "images/roll-the-dice.png";
   zeroPile();
   buttonsOn();
@@ -122,12 +121,12 @@ function buttonsOff() {
 //---GAME MODE---//
 
 function OnePlayerMode() {
-  document.getElementById("one-player").className = "button is-danger";
+  document.getElementById("one-player").className = "button is-primary";
   document.getElementById("two-players").className =
-    "button is-danger is-outlined";
+    "button is-primary is-outlined";
   computerPlayer = true;
-  let nomeJ2 = document.getElementById("nomeJ2");
-  nomeJ2.innerText = "💻 PONTOS JOGADOR 2:";
+  let nameJ2 = document.getElementById("nameJ2");
+  nameJ2.innerText = "💻 POINTS PLAYER 2:";
   if (pile > 0 || scorePlayer1 > 0 || scorePlayer2 > 0) {
     reboot();
   }
@@ -135,17 +134,17 @@ function OnePlayerMode() {
 
 function TwoPlayersMode() {
   document.getElementById("one-player").className =
-    "button is-danger is-outlined";
-  document.getElementById("two-players").className = "button is-danger";
+    "button is-primary is-outlined";
+  document.getElementById("two-players").className = "button is-primary";
   computerPlayer = false;
-  let nomeJ2 = document.getElementById("nomeJ2");
-  nomeJ2.innerText = "🧍 PONTOS JOGADOR 2:";
+  let nameJ2 = document.getElementById("nameJ2");
+  nameJ2.innerText = "🧍 POINTS PLAYER 2:";
   if (pile > 0 || scorePlayer1 > 0 || scorePlayer2 > 0) {
     reboot();
   }
 }
 
-//-----BOTÕES-----//
+//-----BUTTONS-----//
 const roll = document.getElementById("roll");
 roll.addEventListener("click", rollDice);
 
@@ -155,10 +154,10 @@ hold.addEventListener("click", turnPlayer);
 const rebooter = document.getElementById("reboot");
 rebooter.addEventListener("click", reboot);
 
-//habilita modo one player
+//activates mode one player
 const onePlayer = document.getElementById("one-player");
 onePlayer.addEventListener("click", OnePlayerMode);
 
-//const two players desabilita modo one player
+//deactivates mode one player
 const twoPlayers = document.getElementById("two-players");
 twoPlayers.addEventListener("click", TwoPlayersMode);
