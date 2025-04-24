@@ -179,3 +179,13 @@ twoPlayers.addEventListener("click", function () {
     .getElementById("scroll-target")
     .scrollIntoView({ behavior: "smooth" });
 });
+
+// Adding event for mouse scrolling
+window.addEventListener("wheel", function (event) {
+  if (event.deltaY > 0) {
+    // scrolling down
+    document
+      .getElementById("scroll-target")
+      .scrollIntoView({ behavior: "smooth" });
+  }
+});
