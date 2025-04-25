@@ -56,6 +56,7 @@ function turnPlayer() {
       currentPlayerLabel.classList.remove("has-text-primary");
       currentPlayerLabel.classList.add("has-text-danger");
       currentPlayerLabel.innerText = "IT'S YOUR TURN, PLAYER 2!";
+      document.getElementById("dice").src = "images/roll-the-dice.png";
       zeroPile();
       if (computerPlayer === true) {
         console.log("entrou o computador");
@@ -73,6 +74,7 @@ function turnPlayer() {
       currentPlayerLabel.classList.remove("has-text-danger");
       currentPlayerLabel.classList.add("has-text-primary");
       currentPlayerLabel.innerText = "IT'S YOUR TURN, PLAYER 1!";
+      document.getElementById("dice").src = "images/roll-the-dice.png";
       buttonsOn();
       zeroPile();
     }
@@ -153,6 +155,9 @@ function TwoPlayersMode() {
 //-----BUTTONS-----//
 const roll = document.getElementById("roll");
 roll.addEventListener("click", rollDice);
+
+const rollText = document.getElementById("roll-text");
+rollText.addEventListener("click", rollDice);
 
 const hold = document.getElementById("hold");
 hold.addEventListener("click", turnPlayer);
